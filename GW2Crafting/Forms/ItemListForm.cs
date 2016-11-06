@@ -25,13 +25,7 @@ namespace GW2Crafting.Forms
             InitializeComponent();
             itemRepo = new ItemRepository(new ItemDataContext());
 
-            Items = itemRepo.GetAllFromCSV();
-            Items.Sort((p, q) => p.Name.CompareTo(q.Name));
-
-            foreach (Item i in this.Items)
-            {
-                lbAllItems.Items.Add(i.Name);
-            }
+            refreshForm();
         }
 
         private void lbAllItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,6 +63,23 @@ namespace GW2Crafting.Forms
             {
                 SearchResultForm searchResultForm = new SearchResultForm(tbSearch.Text);
                 searchResultForm.ShowDialog();
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            refreshForm();
+        }
+
+        private void refreshForm()
+        {
+            Items = itemRepo.GetAllFromCSV();
+            Items.Sort((p, q) => p.Name.CompareTo(q.Name));
+
+            lbAllItems.Items.Clear();
+            foreach (Item i in this.Items)
+            {
+                lbAllItems.Items.Add(i.Name);
             }
         }
     }

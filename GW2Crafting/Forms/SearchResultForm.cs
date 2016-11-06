@@ -51,7 +51,15 @@ namespace GW2Crafting.Forms
                     }
                 }
             }
-            itemRepo.AddToCSV(ret);
+            try
+            {
+                itemRepo.AddToCSV(ret);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Close();            
         }
     }
 }
