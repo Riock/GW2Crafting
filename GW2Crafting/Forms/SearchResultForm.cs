@@ -15,6 +15,7 @@ namespace GW2Crafting.Forms
 {
     public partial class SearchResultForm : Form
     {
+        //maybe
         private ItemRepository itemRepo;
 
         private string query;

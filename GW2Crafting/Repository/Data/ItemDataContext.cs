@@ -55,7 +55,8 @@ namespace GW2Crafting.Repository.Data
         {
             Item ret = new Item(
                 (int)json["data_id"],
-                (string)json["name"]
+                (string)json["name"],
+                (int)json["min_sale_unit_price"]
                 );
             return ret;
         }

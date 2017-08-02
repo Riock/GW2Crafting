@@ -23,6 +23,12 @@ namespace GW2Crafting.Entities
             this.Name = name;
             this.Price = -1;
         }
+        public Item(int id, string name, int price)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Price = price;
+        }
 
         public override string ToString()
         {
